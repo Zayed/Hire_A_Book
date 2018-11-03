@@ -16,6 +16,9 @@ namespace HireABook.Repository
 
             return GenreInfoList;
         }
-
+        public GenreInfo GetById(int Id)
+        {
+            return DataContextOb.GenreInfo.Where(x => x.GenreId == Id).FirstOrDefault();
+        }
     }
 }

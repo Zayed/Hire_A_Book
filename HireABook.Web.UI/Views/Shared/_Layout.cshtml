@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Obaju : e-commerce template</title>
+    <title>Hire A Book</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -36,13 +36,31 @@
         -->
         <div id="top">
             <div class="container">
-                    <div class="col-lg-12 text-center text-lg-right">
-                        <ul class="menu list-inline mb-0">
-                            <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                            <li class="list-inline-item"><a href="/Home/register">Register</a></li>
-                            <li class="list-inline-item"><a href="#">Recently viewed</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-12 text-center text-lg-right">
+                    <ul class="menu list-inline mb-0">
+                        <li class="list-inline-item">
+                            @if (Session["userName"] != null && Session["userName"].ToString() != "")
+                            {
+                                <a href="/User/ShowMyProfile" @*data-target="#login-modal"*@>
+                                    Welcome @Session["userName"]
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Register" @*data-target="#login-modal"*@>Login</a>
+                            }
+                        </li>
+                        @*<li class="list-inline-item"><a href="/Home/register">Register</a></li>*@
+                        <li class="list-inline-item"><a href="/User/AddBooks">Recently viewed</a></li>
+                        
+                        @if (Session["userName"] != null && Session["userName"].ToString() != "")
+                        {
+                            <li class="list-inline-item"><a href="/Home/LogOut">Log Out</a></li>
+                        }
+
+                        
+                    </ul>
+                </div>
             </div>
             <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
                 <div class="modal-dialog modal-sm">
@@ -75,21 +93,21 @@
         </div>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a href="index.html" class="navbar-brand home"><img src="img/logo.png" alt="Obaju logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
+                <a href="/Home/Index" class="navbar-brand home"><img src="~/Content/img/logo.jpg" style="width:90px" alt="Hire A Book" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
                 <div class="navbar-buttons">
                     <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
                     <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a href="basket.html" class="btn btn-outline-secondary navbar-toggler"><i class="fa fa-shopping-cart"></i></a>
                 </div>
                 <div id="navigation" class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="/Home/Index" class="nav-link">Home</a></li>
 
                         <li class="nav-item"><a href="/User/AddBooks" class="nav-link">Add Books</a></li>
                         <li class="nav-item"><a href="/User/ShowMyUploads" class="nav-link">My Uploads</a></li>
 
 
                     </ul>
-                    
+
                     <div class="navbar-buttons d-flex justify-content-end">
                         <form role="search" class="ml-auto">
                             <div class="input-group">
@@ -118,83 +136,83 @@
         </div>
     </header>
 
-        @RenderBody()
-        <!--
+    @RenderBody()
+    <!--
     *** FOOTER ***
     _________________________________________________________
     -->
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="mb-3">Pages</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="text.html">About us</a></li>
-                            <li><a href="text.html">Terms and conditions</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
-                        </ul>
-                        
-                       
-                    </div>
-                    <!-- /.col-lg-3-->
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="mb-3">Top categories</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="category.html">Mathematics</a></li>
-                            <li><a href="category.html">Engineering</a></li>
-                            <li><a href="category.html">Story</a></li>
-                        </ul>
-      
-                    </div>
-                    <!-- /.col-lg-3-->
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="mb-3">Where to find us</h4>
-                        <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                    <!-- /.col-lg-3-->
-                    <div class="col-lg-3 col-md-6">
-                      
-                        <h4 class="mb-3">Stay in touch</h4>
-                        <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#" class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
-                    </div>
-                    <!-- /.col-lg-3-->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-3">Pages</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="text.html">About us</a></li>
+                        <li><a href="text.html">Terms and conditions</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+
+
                 </div>
-                <!-- /.row-->
+                <!-- /.col-lg-3-->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-3">Top categories</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="category.html">Mathematics</a></li>
+                        <li><a href="category.html">Engineering</a></li>
+                        <li><a href="category.html">Story</a></li>
+                    </ul>
+
+                </div>
+                <!-- /.col-lg-3-->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-3">Where to find us</h4>
+                    <p><strong>New Ideas Ltd.</strong><br>AIUB<br>New Heaven<br>45Y 73J</p>
+                    <hr class="d-block d-md-none">
+                </div>
+                <!-- /.col-lg-3-->
+                <div class="col-lg-3 col-md-6">
+
+                    <h4 class="mb-3">Stay in touch</h4>
+                    <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#" class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
+                </div>
+                <!-- /.col-lg-3-->
             </div>
-            <!-- /.container-->
+            <!-- /.row-->
         </div>
-        <!-- /#footer-->
-        <!-- *** FOOTER END ***-->
-        <!--
+        <!-- /.container-->
+    </div>
+    <!-- /#footer-->
+    <!-- *** FOOTER END ***-->
+    <!--
     *** COPYRIGHT ***
     _________________________________________________________
     -->
-        <div id="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 mb-2 mb-lg-0">
-                        <p class="text-center text-lg-left">©2018 Your name goes here.</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="text-center text-lg-right">
-                            Template design by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious: E-commerce</a>
-                            <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :)-->
-                        </p>
-                    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-2 mb-lg-0">
+                    <p class="text-center text-lg-left">©2018 Your name goes here.</p>
+                </div>
+                <div class="col-lg-6">
+                    <p class="text-center text-lg-right">
+                        Template design by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious: E-commerce</a>
+                        <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :)-->
+                    </p>
                 </div>
             </div>
         </div>
-        <!-- *** COPYRIGHT END ***-->
-        <!-- JavaScript files-->
-        <script src="/content/vendor/jquery/jquery.min.js"></script>
-        <script src="/content/vendor/popper.js/umd/popper.min.js"></script>
-        <script src="/content/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/content/vendor/jquery.cookie/jquery.cookie.js"></script>
-        <script src="/content/vendor/owl.carousel/owl.carousel.min.js"></script>
-        <script src="/content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-        <script src="/content/js/front.js"></script>
+    </div>
+    <!-- *** COPYRIGHT END ***-->
+    <!-- JavaScript files-->
+    <script src="/content/vendor/jquery/jquery.min.js"></script>
+    <script src="/content/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="/content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/content/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="/content/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="/content/js/front.js"></script>
 </body>
 </html>

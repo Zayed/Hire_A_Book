@@ -63,13 +63,20 @@ namespace HireABook.Web.UI.Controllers
             {
                 if(LoginInfo["password"] == userInfoOb.Password)
                 {
-                    return RedirectToAction("Index");
+                    Session["userName"] = LoginInfo["userName"];
+                    return Redirect("/");
                 }
             }
 
-            TempData["Message"] = "Login Failed.";
+            TempData["Message"] = "Login Failed";
 
             return RedirectToAction("Register");
+        }
+
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return Redirect("/");
         }
 
     }

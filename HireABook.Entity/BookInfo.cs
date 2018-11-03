@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace HireABook.Entity
         public bool IsAvailable { get; set; }
         public DateTime UploadDate { get; set; }
         public int UserId { get; set; }
+        [NotMapped]
+        public string GenreName { get; set; }
 
     }
 }

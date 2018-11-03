@@ -55,6 +55,24 @@ namespace HireABook.Web.UI.Controllers
 
         public ActionResult ShowMyUploads()
         {
+            if (Session["userName"]==null)
+            {
+                return Redirect("/Home/Register");
+            }
+
+            UserInfo userInfoOb = userInfoRepoOb.GetByUserName(Session["userName"].ToString());
+
+            List<BookInfo> bookInfoList = BookInfoRepoOb.GetAllById(userInfoOb.UserId);
+
+            foreach (var item in bookInfoList)
+            {
+                item.GenreName = GenreInfoRepoOb.GetById(item.GenreId).GenreName;
+            }
+            return View(bookInfoList);
+        }
+
+        public ActionResult ShowMyProfile()
+        {
             return View();
         }
 

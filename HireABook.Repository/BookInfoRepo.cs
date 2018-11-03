@@ -15,5 +15,10 @@ namespace HireABook.Repository
             DataContextOb.Set<BookInfo>().Add(bookInfoOb);
             return DataContextOb.SaveChanges();
         }
+        public List<BookInfo> GetAllById(int Id)
+        {
+            List<BookInfo> bookInfoList = DataContextOb.BookInfo.Where(x => x.UserId == Id).ToList();
+            return bookInfoList;
+        }
     }
 }
