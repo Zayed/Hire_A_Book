@@ -17,7 +17,7 @@ namespace HireABook.Entity
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int PhoneNo { get; set; }
+        public long PhoneNo { get; set; }
         public int UserRole { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsActive { get; set; }
@@ -26,6 +26,7 @@ namespace HireABook.Entity
         public string Thana { get; set; }
         public string Area { get; set; }
         public string IPAddress { get; set; }
-        public int MyProperty { get; set; }
+        
     }
+
 }
