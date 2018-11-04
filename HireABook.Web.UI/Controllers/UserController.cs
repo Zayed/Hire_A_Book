@@ -116,5 +116,12 @@ namespace HireABook.Web.UI.Controllers
             return Redirect("/User/ShowMyProfile");
         }
 
+        public ActionResult BookDetails(int id)
+        {
+            BookInfo bookInfoList = BookInfoRepoOb.GetAllByBookId(id);
+            bookInfoList.GenreName = GenreInfoRepoOb.GetById(bookInfoList.GenreId).GenreName;
+            bookInfoList.UserName = userInfoRepoOb.GetById(bookInfoList.UserId).UserName;
+            return View(bookInfoList);
+        }
     }
 }

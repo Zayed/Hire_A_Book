@@ -10,3 +10,15 @@ E:\Workstation\ASP.net\HireABook\HireABook.Entity\obj\Debug\HireABook.Entity.csp
 E:\Workstation\ASP.net\HireABook\HireABook.Entity\obj\Debug\HireABook.Entity.csproj.CopyComplete
 E:\Workstation\ASP.net\HireABook\HireABook.Entity\obj\Debug\HireABook.Entity.dll
 E:\Workstation\ASP.net\HireABook\HireABook.Entity\obj\Debug\HireABook.Entity.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\HireABook.Entity.dll.config
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\HireABook.Entity.dll
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\HireABook.Entity.pdb
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\EntityFramework.dll
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\EntityFramework.SqlServer.dll
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\EntityFramework.xml
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\bin\Debug\EntityFramework.SqlServer.xml
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\obj\Debug\HireABook.Entity.csprojAssemblyReference.cache
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\obj\Debug\HireABook.Entity.csproj.CoreCompileInputs.cache
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\obj\Debug\HireABook.Entity.csproj.CopyComplete
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\obj\Debug\HireABook.Entity.dll
+D:\Clouds\Mega Cloud\Cloud Drive\Asp. Net\Project\Hire_A_Book\HireABook.Entity\obj\Debug\HireABook.Entity.pdb

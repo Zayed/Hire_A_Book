@@ -27,6 +27,8 @@ namespace HireABook.Entity
         public int UserId { get; set; }
         [NotMapped]
         public string GenreName { get; set; }
+        [NotMapped]
+        public string UserName { get; set; }
 
     }
 }

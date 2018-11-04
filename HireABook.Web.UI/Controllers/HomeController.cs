@@ -11,11 +11,12 @@ namespace HireABook.Web.UI.Controllers
     public class HomeController : Controller
     {
         UserInfoRepo userInfoRepoOb = new UserInfoRepo();
-
+        BookInfoRepo bookInfoRepoOb = new BookInfoRepo();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            List<BookInfo> bookInfos = bookInfoRepoOb.GetAll().Where(x => x.IsApproved == true).ToList();
+            return View(bookInfos);
         }
 
         [HttpGet]
