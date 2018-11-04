@@ -9,7 +9,7 @@ namespace HireABook.Repository
 {
     public class BookInfoRepo
     {
-        private DataContext DataContextOb = new DataContext();
+        private DataContext DataContextOb = DataContext.getInstance();
         public int InsertBookInfo(BookInfo bookInfoOb)
         {
             DataContextOb.Set<BookInfo>().Add(bookInfoOb);

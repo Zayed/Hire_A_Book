@@ -9,7 +9,7 @@ namespace HireABook.Repository
 {
     public class GenreInfoRepo
     {
-        private DataContext DataContextOb = new DataContext();
+        private DataContext DataContextOb = DataContext.getInstance();
         public List<GenreInfo> GetAll()
         {
             List<GenreInfo> GenreInfoList = DataContextOb.GenreInfo.ToList();

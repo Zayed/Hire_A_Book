@@ -14,6 +14,7 @@ namespace HireABook.Web.UI.Controllers
         UserInfoRepo userInfoRepoOb = new UserInfoRepo();
         GenreInfoRepo GenreInfoRepoOb = new GenreInfoRepo();
         BookInfoRepo BookInfoRepoOb = new BookInfoRepo();
+  
 
         public ActionResult Index()
         {
@@ -23,6 +24,11 @@ namespace HireABook.Web.UI.Controllers
         [HttpGet]
         public ActionResult AddBooks()
         {
+            if (Session["userName"] == null)
+            {
+                return Redirect("/Home/Register");
+            }
+
             List<SelectListItem> GenreList = new List<SelectListItem>();
             GenreList.AddRange(GenreInfoRepoOb.GetAll().Select(x => new SelectListItem() {
                 Text = x.GenreName,
@@ -37,7 +43,8 @@ namespace HireABook.Web.UI.Controllers
         [HttpPost]
         public ActionResult AddBooks(BookInfo BookInfoForm)
         {
-            if(ModelState.IsValid)
+            
+            if (ModelState.IsValid)
             {
                 BookInfoForm.SearchCount = 0;
                 BookInfoForm.AddedBy = "Zayed";
@@ -68,12 +75,45 @@ namespace HireABook.Web.UI.Controllers
             {
                 item.GenreName = GenreInfoRepoOb.GetById(item.GenreId).GenreName;
             }
+
             return View(bookInfoList);
         }
 
         public ActionResult ShowMyProfile()
         {
-            return View();
+            if (Session["userName"] == null)
+            {
+                return Redirect("/Home/Register");
+            }
+
+            UserInfo userInfoOb = userInfoRepoOb.GetByUserName(Session["userName"].ToString());
+
+            return View(userInfoOb);
+        }
+
+        public ActionResult UpdateProfile(UserInfo UpdateForm)
+        {
+            if (Session["userName"] == null)
+            {
+                return Redirect("/Home/Register");
+            }
+
+            if (ModelState.IsValid)
+            {
+                UserInfo oldUserInfoOb = userInfoRepoOb.GetByUserName(Session["userName"].ToString());
+                oldUserInfoOb.FirstName = UpdateForm.FirstName;
+                oldUserInfoOb.LastName = UpdateForm.LastName;
+                oldUserInfoOb.PhoneNo = UpdateForm.PhoneNo;
+                oldUserInfoOb.Password = UpdateForm.Password;
+                oldUserInfoOb.City = UpdateForm.City;
+                oldUserInfoOb.Thana = UpdateForm.Thana;
+                oldUserInfoOb.Area = UpdateForm.Area;
+
+                userInfoRepoOb.UpdateUserInfo(oldUserInfoOb);
+            }
+
+
+            return Redirect("/User/ShowMyProfile");
         }
 
     }
