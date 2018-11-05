@@ -10,12 +10,15 @@ namespace HireABook.Entity
     public class BorrowInfo
     {
         [Key]
+        [Required]
         public int BorrowId { get; set; }
+        [Required]
         public string BorrowedBy { get; set; }
+        public bool IsAccepted { get; set; }
         public bool IsReturned { get; set; }
-        public DateTime BorrowDate { get; set; }
-        public DateTime ReturnDate { get; set; }
-        public double BorrowPrice { get; set; }
+        public DateTime? BorrowDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
         public int BookId { get; set; }
+
     }
 }

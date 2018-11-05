@@ -27,7 +27,6 @@ namespace HireABook.Web.UI.Controllers
                 borrowInfo.BookId = bookInfo.BookId;
                 borrowInfo.BorrowDate = DateTime.Now;
                 borrowInfo.BorrowedBy = Session["userName"].ToString();
-                borrowInfo.BorrowPrice = 140;
                 borrowInfo.IsReturned = false;
                 borrowInfo.ReturnDate = DateTime.Now;
                 borrowInfoRepoOb.InsertBorrowInfo(borrowInfo);

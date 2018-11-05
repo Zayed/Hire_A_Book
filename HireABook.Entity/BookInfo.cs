@@ -11,12 +11,19 @@ namespace HireABook.Entity
     public class BookInfo
     {
         [Key]
+        [Required]
         public int BookId { get; set; }
+        [Required]
         public string BookTitle { get; set; }
+        [Required]
         public string AuthorName { get; set; }
+        [Required]
         public string ISBN { get; set; }
+        [Required]
         public string Edition { get; set; }
+        [Required]
         public double OriginalPrice { get; set; }
+        public double BorrowPrice { get; set; }
         public int GenreId { get; set; }
         public string FrontCover { get; set; }
         public int SearchCount { get; set; }

@@ -26,33 +26,25 @@ namespace HireABook.Web.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegisterUser(FormCollection RegistrationForm)
+        public ActionResult RegisterUser(UserInfo userInfoOb)
         {
-            UserInfo userInfoOb = new UserInfo();
+            
+            if(ModelState.IsValid)
+            {
+                userInfoOb.UserRole = 1;
+                userInfoOb.CreatedDate = DateTime.Now;
+                userInfoOb.LastSeen = DateTime.Now;
+                userInfoOb.IsActive = true;
 
-            userInfoOb.UserName = RegistrationForm["userName"];
-            userInfoOb.FirstName = RegistrationForm["firstName"];
-            userInfoOb.LastName = RegistrationForm["lastName"];
-            userInfoOb.Email = RegistrationForm["email"];
-            userInfoOb.Password = RegistrationForm["password"];
-            userInfoOb.PhoneNo = Convert.ToInt32(RegistrationForm["phone"]);
-            userInfoOb.City = RegistrationForm["city"];
-            userInfoOb.Thana = RegistrationForm["thana"];
-            userInfoOb.Area = RegistrationForm["area"];
+                int ret = userInfoRepoOb.InsertUserInfo(userInfoOb);
 
-            userInfoOb.UserRole = 1;
-            userInfoOb.CreatedDate = DateTime.Now;
-            userInfoOb.LastSeen = DateTime.Now;
-            userInfoOb.IsActive = true;
-
-            int ret = userInfoRepoOb.InsertUserInfo(userInfoOb);
-
-            if (ret > 0)
-                TempData["Message"] = "Registration Successful.";
-            else
-                TempData["Message"] = "Registration Failed.";
-
-            return RedirectToAction("Register");
+                if (ret > 0)
+                    TempData["Message"] = "Registration Successful";
+                else
+                    TempData["Message"] = "Registration Failed";
+            }
+            
+            return View("Register");
 
         }
 
