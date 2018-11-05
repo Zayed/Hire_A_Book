@@ -104,16 +104,14 @@
 
                         <li class="nav-item"><a href="/User/AddBooks" class="nav-link">Add Books</a></li>
                         <li class="nav-item"><a href="/User/ShowMyUploads" class="nav-link">My Uploads</a></li>
-
-
                     </ul>
 
                     <div class="navbar-buttons d-flex justify-content-end">
-                        <form role="search" class="ml-auto">
+                        <form action="/Search/SearchResult" method="get" role="search" class="ml-auto">
                             <div class="input-group">
-                                <input type="text" placeholder="Search" class="form-control">
+                                <input type="text" name="searchText" placeholder="Search" class="form-control">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </form>

@@ -38,5 +38,11 @@ namespace HireABook.Repository
             return ret; 
         }
 
+        public UserInfo GetById(int Id)
+        {
+            UserInfo ret = DataContextOb.Set<UserInfo>().Where(x => x.UserId == Id).FirstOrDefault();
+            return ret;
+        }
+
     }
 }

@@ -43,15 +43,16 @@ namespace HireABook.Web.UI.Controllers
         [HttpPost]
         public ActionResult AddBooks(BookInfo BookInfoForm)
         {
-            
             if (ModelState.IsValid)
             {
+                UserInfo userInfoOb = userInfoRepoOb.GetByUserName(Session["userName"].ToString());
+
                 BookInfoForm.SearchCount = 0;
-                BookInfoForm.AddedBy = "Zayed";
+                BookInfoForm.AddedBy = Session["userName"].ToString();
                 BookInfoForm.IsApproved = false;
                 BookInfoForm.IsAvailable = true;
                 BookInfoForm.UploadDate = DateTime.Now;
-                BookInfoForm.UserId = 1;
+                BookInfoForm.UserId = userInfoOb.UserId;
 
                 BookInfoRepoOb.InsertBookInfo(BookInfoForm);
                 return RedirectToAction("ShowMyUploads");
@@ -116,5 +117,12 @@ namespace HireABook.Web.UI.Controllers
             return Redirect("/User/ShowMyProfile");
         }
 
+        public ActionResult BookDetails(int id)
+        {
+            BookInfo bookInfoList = BookInfoRepoOb.GetAllByBookId(id);
+            bookInfoList.GenreName = GenreInfoRepoOb.GetById(bookInfoList.GenreId).GenreName;
+            bookInfoList.UserName = userInfoRepoOb.GetById(bookInfoList.UserId).UserName;
+            return View(bookInfoList);
+        }
     }
 }

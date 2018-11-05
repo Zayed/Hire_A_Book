@@ -1,5 +1,9 @@
 ﻿@model List<HireABook.Entity.BookInfo>
 
+@{
+    ViewBag.Title = "SearchResult";
+}
+
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +28,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 style="text-align:center;">Posted Books</h2>
+        <h2 style="text-align:center;">Search Result</h2>
         <hr>
         <table class="table table-condensed">
             <tr>
@@ -33,30 +37,27 @@
                 <th>Genre</th>
                 <th>Author Name</th>
                 <th>Edition</th>
-                <th>Original Price</th>
-                <th>Borrow Price</th>
+                <th>Price</th>
                 <th>Added By</th>
                 <th>Upload Date</th>
                 <th>Status</th>
             </tr>
             @foreach (var item in Model)
             {
-                var IsApproved = item.IsApproved == true ? "Approved" : "Not Approved Yet";
-            <tr>
-                <td>@item.BookId</td>
-                <td>@item.BookTitle</td>
-                <td>@item.GenreName</td>
-                <td>@item.AuthorName</td>
-                <td>@item.Edition</td>
-                <td>@item.OriginalPrice</td>
-                <td>@item.BorrowPrice</td>
-                <td>@item.AddedBy</td>
-                <td>@item.UploadDate</td>
-                <td>@IsApproved</td>
-            </tr>
+                <tr>
+                    <td>@item.BookId</td>
+                    <td>@item.BookTitle</td>
+                    <td>@item.GenreName</td>
+                    <td>@item.AuthorName</td>
+                    <td>@item.Edition</td>
+                    <td>@item.OriginalPrice</td>
+                    <td>@item.AddedBy</td>
+                    <td>@item.UploadDate</td>
+                    <td>@item.IsApproved</td>
+                </tr>
             }
 
         </table>
-        </div>
+    </div>
 </body>
 </html>
